@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "974422701776",
+    "firebase_url": "https://polaris-chief-mate-93c44-default-rtdb.firebaseio.com",
+    "project_id": "polaris-chief-mate-93c44",
+    "storage_bucket": "polaris-chief-mate-93c44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974422701776:android:233d17a5ca8d77621b90d5",
+        "android_client_info": {
+          "package_name": "com.example.polaris_chief_mate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974422701776-91t43dgch1iht838lo9m4nn7p1ceduc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.polaris_chief_mate",
+            "certificate_hash": "1ab972c3685c51bf09bff94cb94c3248caff51fa"
+          }
+        },
+        {
+          "client_id": "974422701776-qllg5uka7fkm8d1uko19l7geiga46ar4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.polaris_chief_mate",
+            "certificate_hash": "635e73023c050dac05b9cc64a7d7dbffe07eacd6"
+          }
+        },
+        {
+          "client_id": "974422701776-nfqq31fvsp6iq8lhouicncgqqb00d52e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDniqqe_pt7SU3GcsHZ1ahdIrOiQtpGjC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974422701776-nfqq31fvsp6iq8lhouicncgqqb00d52e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "974422701776-7l4pbppdcp97u2gabquad4gdla9csltg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.polarisChiefMate"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
