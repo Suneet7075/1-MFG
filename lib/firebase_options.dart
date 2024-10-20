@@ -46,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '974422701776',
     projectId: 'polaris-chief-mate-93c44',
     authDomain: 'polaris-chief-mate-93c44.firebaseapp.com',
+    databaseURL: 'https://polaris-chief-mate-93c44-default-rtdb.firebaseio.com',
     storageBucket: 'polaris-chief-mate-93c44.appspot.com',
   );
 
@@ -54,6 +55,7 @@ class DefaultFirebaseOptions {
     appId: '1:974422701776:android:233d17a5ca8d77621b90d5',
     messagingSenderId: '974422701776',
     projectId: 'polaris-chief-mate-93c44',
+    databaseURL: 'https://polaris-chief-mate-93c44-default-rtdb.firebaseio.com',
     storageBucket: 'polaris-chief-mate-93c44.appspot.com',
   );
 
@@ -62,7 +64,10 @@ class DefaultFirebaseOptions {
     appId: '1:974422701776:ios:b96e38774a77aacf1b90d5',
     messagingSenderId: '974422701776',
     projectId: 'polaris-chief-mate-93c44',
+    databaseURL: 'https://polaris-chief-mate-93c44-default-rtdb.firebaseio.com',
     storageBucket: 'polaris-chief-mate-93c44.appspot.com',
+    androidClientId: '974422701776-91t43dgch1iht838lo9m4nn7p1ceduc6.apps.googleusercontent.com',
+    iosClientId: '974422701776-7l4pbppdcp97u2gabquad4gdla9csltg.apps.googleusercontent.com',
     iosBundleId: 'com.example.polarisChiefMate',
   );
 
@@ -71,7 +76,10 @@ class DefaultFirebaseOptions {
     appId: '1:974422701776:ios:b96e38774a77aacf1b90d5',
     messagingSenderId: '974422701776',
     projectId: 'polaris-chief-mate-93c44',
+    databaseURL: 'https://polaris-chief-mate-93c44-default-rtdb.firebaseio.com',
     storageBucket: 'polaris-chief-mate-93c44.appspot.com',
+    androidClientId: '974422701776-91t43dgch1iht838lo9m4nn7p1ceduc6.apps.googleusercontent.com',
+    iosClientId: '974422701776-7l4pbppdcp97u2gabquad4gdla9csltg.apps.googleusercontent.com',
     iosBundleId: 'com.example.polarisChiefMate',
   );
 
@@ -81,6 +89,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '974422701776',
     projectId: 'polaris-chief-mate-93c44',
     authDomain: 'polaris-chief-mate-93c44.firebaseapp.com',
+    databaseURL: 'https://polaris-chief-mate-93c44-default-rtdb.firebaseio.com',
     storageBucket: 'polaris-chief-mate-93c44.appspot.com',
   );
+
 }

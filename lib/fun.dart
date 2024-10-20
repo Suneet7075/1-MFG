@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:polaris_chief_mate/fun1/fun1_home.dart';
 import 'package:polaris_chief_mate/fun2/fun2_home.dart';
+import 'package:polaris_chief_mate/index_page.dart';
 
 class Fun extends StatefulWidget {
   const Fun({super.key});
@@ -13,16 +14,16 @@ class Fun extends StatefulWidget {
 class _FunState extends State<Fun> {
   // List of image paths
   final List<String> imagePaths = [
-    'images/fun1.jpeg',
-    'images/fun2.jpg',
-    'images/fun3.png', // Add more paths as needed
+    'images/fun1/fun1.jpeg',
+    'images/fun1/fun2.jpg',
+    'images/fun1/fun3.png', // Add more paths as needed
   ];
 
   // List of titles for each image
   final List<String> titles = [
     'Function 1',
     'Function 2',
-    'Function 3', // Add more titles as needed
+    'Function 3',// Add more titles as needed
   ];
 
   // List of subtitles for each image
@@ -35,16 +36,24 @@ class _FunState extends State<Fun> {
   void _navigateToFun1(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Fun1()),
+      MaterialPageRoute(builder: (context) => const Fun1()),
     );
   }
 
   void _navigateToFun2(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Fun2()),
+      MaterialPageRoute(builder: (context) => const Fun2()),
     );
   }
+
+  void _navigateToFun3(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Fun2()),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -68,15 +77,15 @@ class _FunState extends State<Fun> {
                     Shadow(
                       blurRadius: 8.0,
                       color: Colors.black.withOpacity(0.5),
-                      offset: Offset(2, 2),
+                      offset: const Offset(2, 2),
                     ),
                   ],
                 ),
               ),
-              titlePadding: EdgeInsets.only(left: 50, bottom: 16), // Adjusted to align title slightly to the left
+              titlePadding: const EdgeInsets.only(left: 50, bottom: 16), // Adjusted to align title slightly to the left
             ),
             leading: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back,color: Colors.white,),
               onPressed: () {
                 Navigator.pop(context); // Navigate back
               },
@@ -94,6 +103,10 @@ class _FunState extends State<Fun> {
                       } else if (i == 1) {
                         _navigateToFun2(context);
                       }
+                      else if (i == 2) {
+                        _navigateToFun3(context);
+                      }
+
                       // Add more navigation logic for other functions if needed
                     },
                     child: Card(
@@ -113,12 +126,12 @@ class _FunState extends State<Fun> {
                             BoxShadow(
                               color: Colors.white.withOpacity(0.5),
                               blurRadius: 10.0,
-                              offset: Offset(3, 3),
+                              offset: const Offset(3, 3),
                             ),
                           ],
                         ),
-                        margin: EdgeInsets.all(8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(16),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Column(
@@ -135,12 +148,12 @@ class _FunState extends State<Fun> {
                                     Shadow(
                                       blurRadius: 6.0,
                                       color: Colors.black.withOpacity(0.5),
-                                      offset: Offset(2, 2),
+                                      offset: const Offset(2, 2),
                                     ),
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Text(
                                 subtitles[i],
                                 style: TextStyle(
@@ -150,7 +163,7 @@ class _FunState extends State<Fun> {
                                     Shadow(
                                       blurRadius: 4.0,
                                       color: Colors.black.withOpacity(0.5),
-                                      offset: Offset(1, 1),
+                                      offset: const Offset(1, 1),
                                     ),
                                   ],
                                 ),
@@ -164,7 +177,7 @@ class _FunState extends State<Fun> {
                 },
                 childCount: imagePaths.length,
               ),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 childAspectRatio: 2.0,
                 crossAxisSpacing: 5.0,

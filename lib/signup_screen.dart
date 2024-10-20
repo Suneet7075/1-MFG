@@ -5,6 +5,8 @@ import 'login_screen.dart'; // Import the LoginScreen
 import 'package:google_fonts/google_fonts.dart'; // Ensure Google Fonts is imported
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
@@ -29,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -42,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     name = value;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 _buildTextField(
                   hintText: 'Enter your email',
                   obscureText: false,
@@ -50,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     email = value;
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 _buildPasswordTextField(
                   hintText: 'Enter your password',
                   onChanged: (value) {
@@ -63,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     });
                   },
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 _buildPasswordTextField(
                   hintText: 'Confirm your password',
                   onChanged: (value) {
@@ -76,16 +78,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     });
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildSignUpButton(),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildGoogleSignInButton(),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text(
                   errorMessage,
-                  style: TextStyle(color: Colors.white70),
+                  style: const TextStyle(color: Colors.white70),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildLoginButton(),
               ],
             ),
@@ -104,7 +106,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       decoration: BoxDecoration(
         color: Colors.grey[900],
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black54,
             blurRadius: 8,
@@ -113,13 +115,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ],
       ),
       child: TextField(
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         keyboardType: obscureText ? TextInputType.visiblePassword : TextInputType.emailAddress,
         obscureText: obscureText,
         onChanged: onChanged,
         decoration: InputDecoration(
           border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
           hintText: hintText,
           hintStyle: TextStyle(color: Colors.grey[500]),
         ),
@@ -137,7 +139,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       decoration: BoxDecoration(
         color: Colors.grey[900],
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black54,
             blurRadius: 8,
@@ -146,12 +148,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ],
       ),
       child: TextField(
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         obscureText: obscureText,
         onChanged: onChanged,
         decoration: InputDecoration(
           border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
           hintText: hintText,
           hintStyle: TextStyle(color: Colors.grey[500]),
           suffixIcon: IconButton(
@@ -173,7 +175,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           BoxShadow(
             color: Colors.white.withOpacity(0.6),
             blurRadius: 10,
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -183,15 +185,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             try {
               final user = await _auth.createUserWithEmailAndPassword(
                   email: email, password: password);
-              if (user != null) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginScreen(userName: name),
-                  ),
-                );
-              }
-            } catch (e) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginScreen(userName: name),
+                ),
+              );
+                        } catch (e) {
               setState(() {
                 errorMessage = e is FirebaseAuthException
                     ? e.message ?? 'An error occurred during sign-up.'
@@ -206,7 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,
-          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -230,7 +230,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           BoxShadow(
             color: Colors.white.withOpacity(0.6),
             blurRadius: 10,
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -268,7 +268,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,
-          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),

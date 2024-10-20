@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:polaris_chief_mate/fun1/buoyage.dart';
 import 'package:polaris_chief_mate/fun1/chart_work.dart';
 import 'package:polaris_chief_mate/fun1/meterology.dart';
-import 'package:polaris_chief_mate/fun1/ror.dart';
+import 'package:polaris_chief_mate/fun1/ror/colregs/ror.dart';
 
 class CelestialNavigation extends StatefulWidget {
   const CelestialNavigation({super.key});
@@ -49,26 +49,26 @@ class _CelestialNavigation extends State<CelestialNavigation> {
       case 0:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Ror()),
+          MaterialPageRoute(builder: (context) => const Ror()),
         );
         break;
       case 1:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Meterology()),
+          MaterialPageRoute(builder: (context) => const Meterology()),
         );
         break;
       case 2:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Buoyage()),
+          MaterialPageRoute(builder: (context) => const Buoyage()),
         );
         break;
 
       case 3:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ChartWork()),
+          MaterialPageRoute(builder: (context) => const ChartWork()),
         );
         break;
     // Add more cases as needed
@@ -86,7 +86,7 @@ class _CelestialNavigation extends State<CelestialNavigation> {
             expandedHeight: 150.0,
             pinned: true,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -102,20 +102,20 @@ class _CelestialNavigation extends State<CelestialNavigation> {
                     Shadow(
                       blurRadius: 8.0,
                       color: Colors.black.withOpacity(0.5),
-                      offset: Offset(2, 2),
+                      offset: const Offset(2, 2),
                     ),
                   ],
                 ),
                 textAlign: TextAlign.left,
               ),
-              titlePadding: EdgeInsets.only(left: 45, bottom: 16), // Adjust left padding to align with the back arrow
+              titlePadding: const EdgeInsets.only(left: 45, bottom: 16), // Adjust left padding to align with the back arrow
               collapseMode: CollapseMode.parallax,
             ),
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 2.0,
                 crossAxisSpacing: 5.0,
@@ -145,12 +145,12 @@ class _CelestialNavigation extends State<CelestialNavigation> {
                             BoxShadow(
                               color: Colors.white.withOpacity(0.6),
                               blurRadius: 9.0,
-                              offset: Offset(0, 4), // Shadow offset
+                              offset: const Offset(0, 4), // Shadow offset
                             ),
                           ],
                         ),
-                        margin: EdgeInsets.all(8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(16),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
@@ -163,7 +163,7 @@ class _CelestialNavigation extends State<CelestialNavigation> {
                                 Shadow(
                                   blurRadius: 6.0,
                                   color: Colors.black.withOpacity(0.5),
-                                  offset: Offset(2, 2),
+                                  offset: const Offset(2, 2),
                                 ),
                               ],
                             ),

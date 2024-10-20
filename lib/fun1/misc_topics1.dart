@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:polaris_chief_mate/fun1/buoyage.dart';
 import 'package:polaris_chief_mate/fun1/chart_work.dart';
 import 'package:polaris_chief_mate/fun1/meterology.dart';
-import 'package:polaris_chief_mate/fun1/ror.dart';
+import 'package:polaris_chief_mate/fun1/ror/colregs/ror.dart';
 
 class MiscTopics1 extends StatefulWidget {
   const MiscTopics1({super.key});
@@ -15,17 +15,17 @@ class MiscTopics1 extends StatefulWidget {
 class _MiscTopics1 extends State<MiscTopics1> {
   // List of image paths
   final List<String> imagePaths = [
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
+    'images/fun1/black_full.jpg',
 
     // Add more paths as needed
   ];
@@ -51,26 +51,26 @@ class _MiscTopics1 extends State<MiscTopics1> {
       case 0:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Ror()),
+          MaterialPageRoute(builder: (context) => const Ror()),
         );
         break;
       case 1:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Meterology()),
+          MaterialPageRoute(builder: (context) => const Meterology()),
         );
         break;
       case 2:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Buoyage()),
+          MaterialPageRoute(builder: (context) => const Buoyage()),
         );
         break;
 
       case 3:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ChartWork()),
+          MaterialPageRoute(builder: (context) => const ChartWork()),
         );
         break;
     // Add more cases as needed
@@ -88,7 +88,7 @@ class _MiscTopics1 extends State<MiscTopics1> {
             expandedHeight: 150.0,
             pinned: true,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -104,25 +104,25 @@ class _MiscTopics1 extends State<MiscTopics1> {
                     Shadow(
                       blurRadius: 8.0,
                       color: Colors.black.withOpacity(0.5),
-                      offset: Offset(2, 2),
+                      offset: const Offset(2, 2),
                     ),
                   ],
                 ),
                 textAlign: TextAlign.left,
               ),
-              titlePadding: EdgeInsets.only(left: 45, bottom: 16), // Adjust left padding to align with the back arrow
+              titlePadding: const EdgeInsets.only(left: 45, bottom: 16), // Adjust left padding to align with the back arrow
               collapseMode: CollapseMode.parallax,
             ),
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 childAspectRatio: 2.0,
                 crossAxisSpacing: 5.0,
                 mainAxisSpacing: 5.0,
-                mainAxisExtent: 250,
+                mainAxisExtent: 90,
               ),
               delegate: SliverChildBuilderDelegate(
                     (ctx, i) {
@@ -145,14 +145,14 @@ class _MiscTopics1 extends State<MiscTopics1> {
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.white.withOpacity(0.6),
-                              blurRadius: 9.0,
-                              offset: Offset(0, 4), // Shadow offset
+                              color: Colors.blue.withOpacity(0.6),
+                              blurRadius: 1.0,
+                              offset: const Offset(0, 4), // Shadow offset
                             ),
                           ],
                         ),
-                        margin: EdgeInsets.all(8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(16),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
@@ -165,7 +165,7 @@ class _MiscTopics1 extends State<MiscTopics1> {
                                 Shadow(
                                   blurRadius: 6.0,
                                   color: Colors.black.withOpacity(0.5),
-                                  offset: Offset(2, 2),
+                                  offset: const Offset(2, 2),
                                 ),
                               ],
                             ),

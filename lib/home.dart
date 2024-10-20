@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:polaris_chief_mate/about.dart';
 import 'package:polaris_chief_mate/fun.dart';
-import 'package:polaris_chief_mate/group_list.dart';
 import 'package:polaris_chief_mate/credits.dart';
-import 'package:polaris_chief_mate/profile_update.dart';
+import 'package:polaris_chief_mate/fun1/contact.dart';
+import 'package:polaris_chief_mate/index_page.dart';
 import 'login_screen.dart';
 
 class Home extends StatefulWidget {
@@ -15,16 +16,17 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
-  // List of image paths
-  final List<String> imagePaths = [
-    'images/fun1/black.jpg',
-    'images/fun1/black.jpg',
+  // List of icons for each card
+  final List<IconData> cardIcons = [
+    Icons.school,
+    Icons.book,// Icon for Orals (second card)
   ];
 
-  // List of titles for each image
+  // List of titles for each icon
   final List<String> titles = [
     'Orals',
-    'Group Chat',
+    'Index',
+   // Ensure matching number of titles with icons
   ];
 
   // Function to navigate to specific screens
@@ -33,30 +35,37 @@ class _Home extends State<Home> {
       case 0:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Fun()),
+          MaterialPageRoute(builder: (context) => const Fun()),
         );
         break;
       case 1:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => GroupsPage()),
+          MaterialPageRoute(builder: (context) => IndexPage()),
         );
         break;
-    // Add more cases as needed
+
     }
   }
 
   void _navigateToCredits(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Credits()), // Navigate to Credits page
+      MaterialPageRoute(builder: (context) => const Credits()), // Navigate to Credits page
     );
   }
 
-  void _navigateToProfile(BuildContext context) {
+  void _navigateToAbout(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ProfileUpdatePage()), // Navigate to ProfileUpdatePage
+      MaterialPageRoute(builder: (context) => About()), // Navigate to ProfileUpdatePage
+    );
+  }
+
+  void _navigateToContact(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Contact()), // Navigate to ProfileUpdatePage
     );
   }
 
@@ -64,7 +73,7 @@ class _Home extends State<Home> {
     await FirebaseAuth.instance.signOut(); // Sign out the user
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => LoginScreen()), // Navigate to LoginScreen
+      MaterialPageRoute(builder: (context) => const LoginScreen()), // Navigate to LoginScreen
           (route) => false, // Remove all previous routes
     );
   }
@@ -79,12 +88,6 @@ class _Home extends State<Home> {
             backgroundColor: Colors.black,
             expandedHeight: 150.0,
             pinned: true,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 'HOME', // Header text
@@ -96,21 +99,21 @@ class _Home extends State<Home> {
                     Shadow(
                       blurRadius: 8.0,
                       color: Colors.black.withOpacity(0.5),
-                      offset: Offset(2, 2),
+                      offset: const Offset(2, 2),
                     ),
                   ],
                 ),
                 textAlign: TextAlign.left,
               ),
-              titlePadding: EdgeInsets.only(left: 45, bottom: 16), // Adjust left padding to align with the back arrow
+              titlePadding: const EdgeInsets.only(left: 45, bottom: 16), // Adjust left padding to align with the back arrow
               collapseMode: CollapseMode.parallax,
             ),
             actions: [
               PopupMenuButton<String>(
                 icon: Container(
                   color: Colors.black, // Background color for the icon
-                  padding: EdgeInsets.all(8),
-                  child: Icon(
+                  padding: const EdgeInsets.all(8),
+                  child: const Icon(
                     Icons.more_vert,
                     color: Colors.white, // Icon color
                   ),
@@ -119,15 +122,19 @@ class _Home extends State<Home> {
                 onSelected: (value) {
                   if (value == 'credits') {
                     _navigateToCredits(context); // Navigate to Credits page
-                  } else if (value == 'profile') {
-                    _navigateToProfile(context); // Navigate to ProfileUpdatePage
+                  } else if (value == 'about') {
+                    _navigateToAbout(context);
+                    // Navigate to ProfileUpdatePage
+                  } else if (value == 'contact') {
+                    _navigateToContact(context);
+                    // Navigate to ProfileUpdatePage
                   } else if (value == 'logout') {
                     _logout(context); // Logout the user and navigate to Login screen
                   }
                 },
                 itemBuilder: (BuildContext context) {
                   return [
-                    PopupMenuItem<String>(
+                    const PopupMenuItem<String>(
                       value: 'credits',
                       child: Text(
                         'Credits',
@@ -136,16 +143,25 @@ class _Home extends State<Home> {
                         ),
                       ),
                     ),
-                    PopupMenuItem<String>(
-                      value: 'profile',
+                    const PopupMenuItem<String>(
+                      value: 'about',
                       child: Text(
-                        'Profile',
+                        'About',
                         style: TextStyle(
                           color: Colors.white, // Text color
                         ),
                       ),
                     ),
-                    PopupMenuItem<String>(
+                    const PopupMenuItem<String>(
+                      value: 'contact',
+                      child: Text(
+                        'Contact Us',
+                        style: TextStyle(
+                          color: Colors.white, // Text color
+                        ),
+                      ),
+                    ),
+                    const PopupMenuItem<String>(
                       value: 'logout',
                       child: Text(
                         'Logout',
@@ -162,12 +178,12 @@ class _Home extends State<Home> {
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 2.0,
                 crossAxisSpacing: 5.0,
                 mainAxisSpacing: 5.0,
-                mainAxisExtent: 250,
+                mainAxisExtent: 200,
               ),
               delegate: SliverChildBuilderDelegate(
                     (ctx, i) {
@@ -176,51 +192,47 @@ class _Home extends State<Home> {
                       _navigateToDetails(context, i); // Navigate to the specific screen
                     },
                     child: Card(
-                      color: Colors.transparent, // Transparent card background
-                      elevation: 0,
+                      color: Colors.grey.withOpacity(0.25), // Elegant black card background
+                      elevation: 3,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                            image: AssetImage(imagePaths[i]), // Image for the card
-                            fit: BoxFit.cover,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.white.withOpacity(0.6),
-                              blurRadius: 9.0,
-                              offset: Offset(0, 4), // Shadow offset
+                        margin: const EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              cardIcons[i],
+                              size: 50,
+                              color: Colors.white.withOpacity(0.9), // Elegant icon color
+                            ),
+                            const SizedBox(height: 20),
+                            Text(
+                              titles[i], // Title for the card
+                              style: GoogleFonts.playfairDisplay(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    blurRadius: 6.0,
+                                    color: Colors.black.withOpacity(0.5),
+                                    offset: const Offset(2, 2),
+                                  ),
+                                ],
+                              ),
+                              textAlign: TextAlign.center,
                             ),
                           ],
-                        ),
-                        margin: EdgeInsets.all(8),
-                        padding: EdgeInsets.all(16),
-                        child: Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Text(
-                            titles[i], // Title for the card
-                            style: GoogleFonts.playfairDisplay(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              shadows: [
-                                Shadow(
-                                  blurRadius: 6.0,
-                                  color: Colors.black.withOpacity(0.5),
-                                  offset: Offset(2, 2),
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
                       ),
                     ),
                   );
                 },
-                childCount: imagePaths.length,
+                childCount: cardIcons.length, // Matching icon count with number of cards
               ),
             ),
           ),

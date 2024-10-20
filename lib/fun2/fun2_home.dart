@@ -37,7 +37,7 @@ class _Fun2State extends State<Fun2> {
         children: [
           Container(
             width: double.infinity,
-            padding: EdgeInsets.only(left: 25, top: 50), // Add top padding for margin
+            padding: const EdgeInsets.only(left: 25, top: 50), // Add top padding for margin
             child: Text(
               'Functions', // Header text
               style: TextStyle(
@@ -48,7 +48,7 @@ class _Fun2State extends State<Fun2> {
                   Shadow(
                     blurRadius: 8.0,
                     color: Colors.black.withOpacity(0.5),
-                    offset: Offset(2, 2),
+                    offset: const Offset(2, 2),
                   ),
                 ],
               ),
@@ -74,8 +74,8 @@ class _Fun2State extends State<Fun2> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    margin: EdgeInsets.all(8),
-                    padding: EdgeInsets.all(16),
+                    margin: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(16),
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Column(
@@ -91,12 +91,12 @@ class _Fun2State extends State<Fun2> {
                                 Shadow(
                                   blurRadius: 6.0,
                                   color: Colors.black.withOpacity(0.5),
-                                  offset: Offset(2, 2),
+                                  offset: const Offset(2, 2),
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           Text(
                             subtitles[i], // Subtitle for the card
                             style: TextStyle(
@@ -106,7 +106,7 @@ class _Fun2State extends State<Fun2> {
                                 Shadow(
                                   blurRadius: 4.0,
                                   color: Colors.black.withOpacity(0.5),
-                                  offset: Offset(1, 1),
+                                  offset: const Offset(1, 1),
                                 ),
                               ],
                             ),
@@ -117,7 +117,7 @@ class _Fun2State extends State<Fun2> {
                   ),
                 );
               },
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 childAspectRatio: 2.0,
                 crossAxisSpacing: 5.0,
